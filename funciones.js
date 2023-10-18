@@ -1,6 +1,13 @@
-function doGet ()
+const HOJA = SpreadsheetApp.openById('1v6OlxQ2LkmknDPLPkFz8XlXhygkmsxQZ4fcSHaKn1g4').getActiveSheet();
+
+function doGet (datos)
 {
     return HtmlService.createTemplateFromFile("web").evaluate().setTitle("Agenda google apps Script");
+}
+
+function doPost (datos)
+{    
+    return HtmlService.createTemplateFromFile("web").evaluate().setTitle("Agenda google apps Script");    
 }
 
 function obtenerDatosHTML (nombre)
@@ -9,8 +16,11 @@ function obtenerDatosHTML (nombre)
 }
 
 function obtenerContactos()
+{  
+    return HOJA.getDataRange().getValues();
+}
+
+function insertarContactos (nombre, correo)
 {
-    let hoja = SpreadsheetApp.openById('1v6OlxQ2LkmknDPLPkFz8XlXhygkmsxQZ4fcSHaKn1g4').getActiveSheet();
-    let datos = hoja.getDataRange().getValues();
-    return datos;
+    HOJA.appendRow([nombre,correo]);
 }
