@@ -3,7 +3,11 @@
     {
         //obtener datos del formulario
         let nombre= document.getElementById('nombre').value;
-        let correo= document.getElementById('correo').value;    
+        let correo= document.getElementById('correo').value;  
+        
+        //cerra modal
+
+        bootstrap.Modal.getInstance(document.getElementById('crearContactoModal')).hide();         
         
         //eliminar tabla
         eliminarTabla();
